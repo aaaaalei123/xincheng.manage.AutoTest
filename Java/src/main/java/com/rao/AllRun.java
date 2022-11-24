@@ -4,13 +4,16 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 
+//import io.github.bonigarcia.wdm.WebDriverManager;
+
 import com.rao.tool.WebDriverTool;
 
 public class AllRun {
 
 	public static void main(String[] args) throws Exception {
 		Thread.sleep(3000);
-		System.setProperty("webdriver.chrome.driver", "D:/JOBSoftware/chromedriver_win32/chromedriver.exe");
+		System.setProperty("webdriver.edge.driver", "D:/OneDrive/JobData/software/edgedriver_win64/msedgedriver.exe");
+		//WebDriverManager.edgedriver().setup();
 		WebDriver webDriver = WebDriverTool.webdriver;
 		webDriver.manage().window().maximize();
 		webDriver.manage().deleteAllCookies();
@@ -18,7 +21,7 @@ public class AllRun {
 		// 与浏览器同步非常重要，必须等待浏览器加载完毕
 		webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		//打开目标地址
-		webDriver.get("http://testorchdbs.yufengtek.com/admin/#/");
+		webDriver.get("http://xincheng.manage.kukeduo.net/Admin/ShopLogin.aspx");
 		
 		Login login = new Login();
 		Home home = new Home();
