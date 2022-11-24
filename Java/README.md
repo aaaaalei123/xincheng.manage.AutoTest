@@ -1,2 +1,2 @@
-# AutoTestDemo1
-智慧果园后台自动化测试实例
+# xincheng.manage.AutoTest
+新橙后台自动化测试Demo
