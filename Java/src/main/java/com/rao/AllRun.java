@@ -1,8 +1,10 @@
 package com.rao;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 //import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -19,7 +21,10 @@ public class AllRun {
 		webDriver.manage().deleteAllCookies();
 		
 		// 与浏览器同步非常重要，必须等待浏览器加载完毕
-		webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		//旧方法
+		// webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+		new WebDriverWait(webDriver, Duration.ofSeconds(10));
 		//打开目标地址
 		webDriver.get("http://xincheng.manage.kukeduo.net/Admin/ShopLogin.aspx");
 		
