@@ -16,9 +16,14 @@ public class Login {
 		 * */
 		//输入账号 密码并登陆系统
 		Thread.sleep(1000);
-		webdriver.findElement(By.xpath("/html/body/div/div/div/div/form/div[1]/div/div/input")).sendKeys("18970786473");
-		webdriver.findElement(By.xpath("/html/body/div/div/div/div/form/div[2]/div/div/input")).sendKeys("abc123");
-		webdriver.findElement(By.cssSelector("span[class='el-checkbox__inner']")).click();
-		webdriver.findElement(By.cssSelector("button[class='el-button size submit el-button--primary']")).click();
+		// webdriver.findElement(By.xpath("/html/body/div/div/div/div/form/div[1]/div/div/input")).sendKeys("18970786473");
+		// webdriver.findElement(By.xpath("/html/body/div/div/div/div/form/div[2]/div/div/input")).sendKeys("abc123");
+		// webdriver.findElement(By.cssSelector("span[class='el-checkbox__inner']")).click();
+		// webdriver.findElement(By.cssSelector("button[class='el-button size submit el-button--primary']")).click();
+
+		webdriver.findElement(By.id("txtUserName")).sendKeys("天天果园");
+		webdriver.findElement(By.id("txtPassword")).sendKeys("Aa123456");
+		webdriver.findElement(By.id("btnSave")).click();
+
 	}
 }

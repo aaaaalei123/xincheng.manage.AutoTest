@@ -1,7 +1,6 @@
 package com.rao;
 
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -29,6 +28,7 @@ public class AllRun {
 		webDriver.get("http://xincheng.manage.kukeduo.net/Admin/ShopLogin.aspx");
 		
 		Login login = new Login();
+		
 		Home home = new Home();
 		Garden garden = new Garden();
 		Massif massif = new Massif();

@@ -16,34 +16,18 @@ import org.openqa.selenium.support.ui.Select;
 import org.apache.commons.io.FileUtils;
 import java.io.File;
 
-import com.rao.tool.WebDriverTool;
+import com.rao.tool.*;
 
-
-public class Run {
-
-	static WebDriver webDriver = WebDriverTool.webdriver;
-	private boolean acceptNextAlert = true;
-	private static StringBuffer verificationErrors = new StringBuffer();
-
-	@Before
-	public void setUp() throws Exception {
-		Thread.sleep(3000);
-		System.setProperty("webdriver.edge.driver", "D:/OneDrive/JobData/software/edgedriver_win64/msedgedriver.exe");
-		//WebDriverManager.edgedriver().setup();
-	
-	}
+public class Run extends BrowserBase {
 
 	@Test
 	public static void main(String[] args) throws Exception {
-		webDriver.manage().window().maximize();
-		webDriver.manage().deleteAllCookies();
-				
-		// 与浏览器同步非常重要，必须等待浏览器加载完毕
-		//旧方法
-		// webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		new WebDriverWait(webDriver, Duration.ofSeconds(10));
-		//打开目标地址
-		webDriver.get("http://xincheng.manage.kukeduo.net/Admin/ShopLogin.aspx");
+		BrowserBase browserBase = new BrowserBase();
+
+		//打开浏览器和地址
+		browserBase.setBrowserType(3);
+		browserBase.maxWindow();
+		browserBase.open("http://xincheng.manage.kukeduo.net/Admin/ShopLogin.aspx");
 
 		try { 
 
@@ -54,16 +38,18 @@ public class Run {
 		//登录
 		login.pageRun();
 		Thread.sleep(1000);
+
 		
 		// //首页
 		pagDefault.pageRun();
 		Thread.sleep(1000);
-		
-		
+
 		
 		// //退出浏览器
 		// Thread.sleep(2000);
 		// webDriver.quit();
+		browserBase.quit();
+
 		
 		// webDriver.quit();
 		// String verificationErrorString = verificationErrors.toString();
@@ -72,7 +58,8 @@ public class Run {
 		// }
   
 		} catch(NoSuchElementException NSEE){ 
-			System.out.println("未找到元素！！！"+ NSEE);
+			//system.out.println("未找到元素！！！"+ NSEE);
+			LogRecorder.Error("未找到元素" + NSEE);
 		}catch(NoSuchWindowException NSWE){
 			System.out.println("切换浏览器窗口时出现异常!!!"+ NSWE);
 		}catch(NoAlertPresentException  NAPE){
