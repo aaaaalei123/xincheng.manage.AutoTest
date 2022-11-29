@@ -16,12 +16,12 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class BasePage {
-    protected WebDriver driver;
+    protected WebDriver driver = WebDriverTool.webdriver;
     private static float timeout = 30;
 
-    protected BasePage(WebDriver driver) {
-        this.driver = driver;
-    }
+    // protected BasePage(WebDriver driver) {
+    //     this.driver = driver;
+    // }
 
     public WebDriver getDriver(){
         return driver;
@@ -209,7 +209,7 @@ public class BasePage {
             LogRecorder.Error(locator + "无法输入");
         }
 
-        LogRecorder.Error("在" + locator + "输入" + text + "失败");
+        LogRecorder.Error("在" + locator + "输入" + text + "成功");
 
     }
 

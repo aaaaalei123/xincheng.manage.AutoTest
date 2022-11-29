@@ -3,12 +3,14 @@ package com.rao;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import com.rao.tool.BasePage;
 import com.rao.tool.WebDriverTool;
 
-public class Login {
+public class Login{
+
 	public void pageRun() throws Exception{
-		WebDriver webdriver = WebDriverTool.webdriver;
-		
+		BasePage basePage = new BasePage();
+
 		/**
 		 * 
 		 * 登录
@@ -21,9 +23,13 @@ public class Login {
 		// webdriver.findElement(By.cssSelector("span[class='el-checkbox__inner']")).click();
 		// webdriver.findElement(By.cssSelector("button[class='el-button size submit el-button--primary']")).click();
 
-		webdriver.findElement(By.id("txtUserName")).sendKeys("天天果园");
-		webdriver.findElement(By.id("txtPassword")).sendKeys("Aa123456");
-		webdriver.findElement(By.id("btnSave")).click();
+		// webdriver.findElement(By.id("txtUserName")).sendKeys("天天果园");
+		// webdriver.findElement(By.id("txtPassword")).sendKeys("Aa123456");
+		// webdriver.findElement(By.id("btnSave")).click();
+
+		basePage.type(By.id("txtUserName"), "天天果园");
+		basePage.type(By.id("txtPassword"), "Aa123456");
+		basePage.click(By.id("btnSave"));
 
 	}
 }
