@@ -58,24 +58,23 @@ public class Run extends BrowserBase {
 		// }
   
 		} catch(NoSuchElementException NSEE){ 
-			//system.out.println("未找到元素！！！"+ NSEE);
-			LogRecorder.Error("未找到元素" + NSEE);
+			LogRecorder.Error("未找到元素!!!" + NSEE);
 		}catch(NoSuchWindowException NSWE){
-			System.out.println("切换浏览器窗口时出现异常!!!"+ NSWE);
+			LogRecorder.Error("切换浏览器窗口时出现异常!!!"+ NSWE);
 		}catch(NoAlertPresentException  NAPE){
-			System.out.println("找不到对话框！！！"+ NAPE);
+			LogRecorder.Error("找不到对话框！！！"+ NAPE);
 		}catch(ElementNotVisibleException ENVE ){
-			System.out.println("找不到元素！！！"+ ENVE);	
+			LogRecorder.Error("找不到元素！！！"+ ENVE);
 		}catch(ElementNotSelectableException ENSE ){
-			System.out.println("无法选择元素！！！"+ ENSE);	
+			LogRecorder.Error("无法选择元素！！！"+ ENSE);
 		}catch(NoSuchSessionException NSSE ){
-			System.out.println("无法搜索会话！！！"+ NSSE);	
+			LogRecorder.Error("无法搜索会话！！！"+ NSSE);
 		}catch(StaleElementReferenceException SERE ){
-			System.out.println("无法与所需元素交互！！！"+ SERE);	
+			LogRecorder.Error("无法与所需元素交互！！！"+ SERE);
 		}catch(TimeoutException TE ){
-			System.out.println("超时！！！"+ TE);	
+			LogRecorder.Error("超时！！！"+ TE);
 		}catch(NoSuchFrameException NSF){
-			System.out.println("找不到所需的框架！！！"+ NSF);	
+			LogRecorder.Error("找不到所需的框架！！！"+ NSF);
 		}
 	}
 
