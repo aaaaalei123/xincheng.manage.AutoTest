@@ -27,9 +27,9 @@ public class Login{
 		// webdriver.findElement(By.id("txtPassword")).sendKeys("Aa123456");
 		// webdriver.findElement(By.id("btnSave")).click();
 
-		basePage.type(By.id("txtUserName"), "天天果园");
-		basePage.type(By.id("txtPassword"), "Aa123456");
-		basePage.click(By.id("btnSave"));
+		basePage.sendKeys(By.id("txtUserName"), "天天果园","账号框");
+		basePage.sendKeys(By.id("txtPassword"), "Aa123456","密码框");
+		basePage.click(By.id("btnSave"), "登录按钮");
 
 	}
 }

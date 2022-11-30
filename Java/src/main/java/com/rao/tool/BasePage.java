@@ -181,10 +181,11 @@ public class BasePage {
      * 清除输入框内容，然后输入，自带超时时间
      * @param locator 定位器
      * @param text 输入的文本
+     * @param name 控件名称
      * (1/2)
      */
-    public void type(By locator, String text){
-        type(locator,text,timeout);
+    public void sendKeys(By locator, String text, String name){
+        sendKeys(locator,text,timeout,name);
     }
 
     /**
@@ -192,45 +193,49 @@ public class BasePage {
      * @param locator 定位器
      * @param text 输入的文本
      * @param timeout 超时时间
+     * @param name 控件名称
      * (2/2)
      */
-    private void type(By locator, String text, float timeout) {
+    private void sendKeys(By locator, String text, float timeout, String name) {
         // TODO Auto-generated method stub
         WebElement we = getElement(locator, timeout);
         try{
             we.clear();
         } catch (Exception e) {
-            LogRecorder.Error(locator + "无法清空");
+            LogRecorder.Error("'" + name + "'" + locator + "无法清空");
         }
         try {
             we.sendKeys(text);
         } catch (Exception e) {
             e.printStackTrace();
-            LogRecorder.Error(locator + "无法输入");
+            LogRecorder.Error("'" + name + "'" + locator + "无法输入");
         }
 
-        LogRecorder.Error("在" + locator + "输入" + text + "成功");
+        LogRecorder.Info("在" + "'" + name + "'" +  "输入" + "'" + text + "'"  + "成功");
 
     }
 
     /**
      * 点击页面元素，自带默认点击前获取元素的超时时间
      * @param locator 定位器
+     * @param name 控件名称
      * (1/2)
      */
-    public void click (By locator){
-        click(locator, timeout);
+    public void click (By locator,  String name){
+        click(locator, timeout, name);
     }
 
     /**
      * 点击页面元素，可以指定点击前获取元素的超时时间
      * @param locator 定位器
      * @param timeout 超时时间
+     * @param name 控件名称
      * (2/2)
      */
-    private void click(By locator, float timeout) {
+    private void click(By locator, float timeout, String name) {
         // TODO Auto-generated method stub
         getElement(locator, timeout).click();
+        LogRecorder.Info("点击" + "'" + name + "'" + "成功");
     }
 
     /**
