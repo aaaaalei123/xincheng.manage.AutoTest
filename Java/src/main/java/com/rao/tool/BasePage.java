@@ -479,7 +479,7 @@ public class BasePage {
     private void getText(By locator, float timeout, String name) {
         // TODO Auto-generated method stub
         String Text = getElement(locator,timeout).getText();
-        LogRecorder.Info("获取" + "'" + name + "'" + "的内容为" + Text);
+        LogRecorder.Info("获取" + "'" + name + "'" + "的内容为" + "'" + Text + "'");
     }
 
 }
