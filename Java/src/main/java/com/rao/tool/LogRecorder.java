@@ -107,6 +107,26 @@ public class LogRecorder {
     }
 
     /**
+     * 添加DEBUG级别的日志
+     * @param slog 日志内容
+     * @return
+     */
+    public static boolean Debug(String slog){
+        return AddDebugLog(slog);
+    }
+
+    /**
+     * 增加Debug级别日志
+     * @param sLog
+     * @return
+     */
+    public static boolean AddDebugLog(String sLog) {
+        GetColorByLevel(0);
+        return AddLog(sLog,LEVEL_DEBUG);
+    }
+
+
+    /**
      * 添加INFO级别的日志
      * @param slog 日志内容
      * @return
@@ -121,35 +141,10 @@ public class LogRecorder {
      * @return
      */
     public static boolean AddInfoLog(String sLog) {
+        GetColorByLevel(1);
         return AddLog(sLog,LEVEL_INFO);
     }
 
-    /**
-     * 增加Warning级别日志
-     * @param sLog
-     * @return
-     */
-    public static boolean AddWarningLog(String sLog) {
-        return AddLog(sLog,LEVEL_WARNING);
-    }
-
-    /**
-     * 添加WARN级别的日志
-     * @param slog 日志内容
-     * @return
-     */
-    public static boolean Warn(String slog){
-        return AddWarningLog(slog);
-    }
-
-    /**
-     * 增加Event级别日志
-     * @param sLog
-     * @return
-     */
-    public static boolean AddEventLog(String sLog) {
-        return AddLog(sLog,LEVEL_EVENT);
-    }
 
     /**
      * 添加EVENT级别的日志
@@ -161,14 +156,36 @@ public class LogRecorder {
     }
 
     /**
-     * 增加Error级别日志
+     * 增加Event级别日志
      * @param sLog
      * @return
      */
-    public static boolean AddErrorLog(String sLog) {
-        return AddLog(sLog,LEVEL_ERROR);
+    public static boolean AddEventLog(String sLog) {
+        GetColorByLevel(2);
+        return AddLog(sLog,LEVEL_EVENT);
     }
 
+
+    /**
+     * 添加WARN级别的日志
+     * @param slog 日志内容
+     * @return
+     */
+    public static boolean Warn(String slog){
+        return AddWarningLog(slog);
+    }
+
+    /**
+     * 增加Warning级别日志
+     * @param sLog
+     * @return
+     */
+    public static boolean AddWarningLog(String sLog) {
+        GetColorByLevel(3);
+        return AddLog(sLog,LEVEL_WARNING);
+    }
+
+    
     /**
      * 添加ERROR级别的日志
      * @param slog 日志内容
@@ -179,22 +196,15 @@ public class LogRecorder {
     }
 
     /**
-     * 增加Debug级别日志
+     * 增加Error级别日志
      * @param sLog
      * @return
      */
-    public static boolean AddDebugLog(String sLog) {
-        return AddLog(sLog,LEVEL_DEBUG);
+    public static boolean AddErrorLog(String sLog) {
+        GetColorByLevel(4);
+        return AddLog(sLog,LEVEL_ERROR);
     }
 
-    /**
-     * 添加DEBUG级别的日志
-     * @param slog 日志内容
-     * @return
-     */
-    public static boolean Debug(String slog){
-        return AddDebugLog(slog);
-    }
 
     /**
      * 异常日志,以error级别打印相关信息,以debug等级打印调用堆栈
@@ -266,9 +276,5 @@ public class LogRecorder {
                     + "</script>");
         }
     }
-
-
-
-
 
 }
