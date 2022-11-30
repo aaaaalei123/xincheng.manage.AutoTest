@@ -10,6 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.interactions.Actions;
 
 import java.util.Iterator;
 import java.util.Set;
@@ -17,6 +18,8 @@ import java.util.concurrent.TimeUnit;
 
 public class BasePage {
     protected WebDriver driver = WebDriverTool.webdriver;
+    Actions actions = new Actions(driver);
+
     private static float timeout = 5;
 
     // protected BasePage(WebDriver driver) {
@@ -429,6 +432,29 @@ public class BasePage {
             alert.dismiss();
             return true;
         }
+    }
+
+    /**
+     * 移动到页面元素，自带默认移动前获取元素的超时时间
+     * @param locator 定位器
+     * @param name 控件名称
+     * (1/2)
+     */
+    public void moveTo (By locator, String name){
+        moveTo(locator, timeout, name);
+    }
+
+    /**
+     * 移动到页面元素，可以指定移动前获取元素的超时时间
+     * @param locator 定位器
+     * @param timeout 超时时间
+     * @param name 控件名称
+     * (2/2)
+     */
+    private void moveTo(By locator, float timeout, String name) {
+        // TODO Auto-generated method stub
+        actions.moveToElement(getElement(locator, timeout)).perform();
+        LogRecorder.Info("移动到" + "'" + name + "'" + "成功");
     }
 
 }
