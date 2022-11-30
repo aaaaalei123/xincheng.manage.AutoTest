@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 
 public class BasePage {
     protected WebDriver driver = WebDriverTool.webdriver;
-    private static float timeout = 30;
+    private static float timeout = 5;
 
     // protected BasePage(WebDriver driver) {
     //     this.driver = driver;
@@ -221,7 +221,7 @@ public class BasePage {
      * @param name 控件名称
      * (1/2)
      */
-    public void click (By locator,  String name){
+    public void click (By locator, String name){
         click(locator, timeout, name);
     }
 
