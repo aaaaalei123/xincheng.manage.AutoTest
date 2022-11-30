@@ -457,5 +457,29 @@ public class BasePage {
         LogRecorder.Info("移动到" + "'" + name + "'" + "成功");
     }
 
-}
 
+
+/**
+     * 获取的内容,使用默认超时时间
+     * @param locator 定位器
+     * @return
+     * (1/2)
+     */
+    public void getText(By locator,String name) {
+        getText(locator,timeout,name);
+    }
+
+    /**
+     * 获取控件文本信息,可以指定超时时间
+     * @param locator 定位器
+     * @param timeout 超时时间
+     * @return
+     * (2/2)
+     */
+    private void getText(By locator, float timeout, String name) {
+        // TODO Auto-generated method stub
+        String Text = getElement(locator,timeout).getText();
+        LogRecorder.Info("获取" + "'" + name + "'" + "的内容为" + Text);
+    }
+
+}
