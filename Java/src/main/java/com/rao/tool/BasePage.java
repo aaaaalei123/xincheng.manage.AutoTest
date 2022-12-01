@@ -205,16 +205,16 @@ public class BasePage {
         try{
             we.clear();
         } catch (Exception e) {
-            LogRecorder.Error("'" + name + "'" + locator + "无法清空");
+            LogRecorder.Error("<" + name + ">" + locator + "无法清空");
         }
         try {
             we.sendKeys(text);
         } catch (Exception e) {
             e.printStackTrace();
-            LogRecorder.Error("'" + name + "'" + locator + "无法输入");
+            LogRecorder.Error("<" + name + ">" + locator + "无法输入");
         }
 
-        LogRecorder.Info("在" + "'" + name + "'" +  "输入" + "'" + text + "'"  + "成功");
+        LogRecorder.Info("在" + "<" + name + ">" +  "输入" + "<" + text + ">"  + "成功");
 
     }
 
@@ -238,7 +238,7 @@ public class BasePage {
     private void click(By locator, float timeout, String name) {
         // TODO Auto-generated method stub
         getElement(locator, timeout).click();
-        LogRecorder.Info("点击" + "'" + name + "'" + "成功");
+        LogRecorder.Info("点击" + "<" + name + ">" + "成功");
     }
 
     /**
@@ -454,7 +454,7 @@ public class BasePage {
     private void moveTo(By locator, float timeout, String name) {
         // TODO Auto-generated method stub
         actions.moveToElement(getElement(locator, timeout)).perform();
-        LogRecorder.Info("移动到" + "'" + name + "'" + "成功");
+        LogRecorder.Info("移动到" + "<" + name + ">" + "成功");
     }
 
 
@@ -478,7 +478,7 @@ public class BasePage {
     private void getText(By locator, float timeout, String name) {
         // TODO Auto-generated method stub
         String Text = getElement(locator,timeout).getText();
-        LogRecorder.Info("获取" + "'" + name + "'" + "的内容为" + "'" + Text + "'");
+        LogRecorder.Info("获取" + "<" + name + ">" + "的内容为" + "<" + Text + ">");
     }
 
 
@@ -490,13 +490,13 @@ public class BasePage {
      * (2/2)
      */
     public void getTextComplex(String name, By... locator){
-        String str = name;
+        String text = "";
         for (By by : locator) {
             // String text = getElement(locator[j]).getText();
             // LogRecorder.Info(name + text);
-            str += getElement(by).getText();
+            text += getElement(by).getText();
         }
-        LogRecorder.Info(str + "'");
+        LogRecorder.Info("获取" + "<" + name + ">" + "的内容为" + "<" + text + ">");
     
     }
 
