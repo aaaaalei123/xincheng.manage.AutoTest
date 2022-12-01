@@ -458,11 +458,10 @@ public class BasePage {
     }
 
 
-
 /**
      * 获取的内容,使用默认超时时间
      * @param locator 定位器
-     * @return
+     * @param name 控件名称
      * (1/2)
      */
     public void getText(By locator,String name) {
@@ -473,13 +472,32 @@ public class BasePage {
      * 获取控件文本信息,可以指定超时时间
      * @param locator 定位器
      * @param timeout 超时时间
-     * @return
+     * @param name 控件名称
      * (2/2)
      */
     private void getText(By locator, float timeout, String name) {
         // TODO Auto-generated method stub
         String Text = getElement(locator,timeout).getText();
         LogRecorder.Info("获取" + "'" + name + "'" + "的内容为" + "'" + Text + "'");
+    }
+
+
+
+    /**
+     * 获取多个控件文本信息,并拼接输入到log
+     * @param locator 定位器
+     * @param name 控件名称
+     * (2/2)
+     */
+    public void getTextComplex(String name, By... locator){
+        String str = name;
+        for (By by : locator) {
+            // String text = getElement(locator[j]).getText();
+            // LogRecorder.Info(name + text);
+            str += getElement(by).getText();
+        }
+        LogRecorder.Info(str + "'");
+    
     }
 
 }
