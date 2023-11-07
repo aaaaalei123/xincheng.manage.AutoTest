@@ -17,8 +17,8 @@ public class Login{
 		 * */
 		//输入账号 密码并登陆系统
 		LogRecorder.Info("进入登录页");
-		basePage.sendKeys(By.id("txtUserName"), "天天果园","账号框");
-		basePage.sendKeys(By.id("txtPassword"), "Aa123456","密码框");
+		basePage.sendKeys(By.id("txtUserName"), "","账号框");
+		basePage.sendKeys(By.id("txtPassword"), "","密码框");
 		basePage.click(By.id("btnSave"), "登录按钮");
 
 	}
